@@ -9,6 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.DeleteSupplierActivity"></activity>
+        <activity
+            android:name=".activities.CreateSupplierScrollingActivity"
+            android:label="@string/title_activity_create_supplier_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SeeListSupplierScrollingActivity"
+            android:label="@string/title_activity_see_list_supplier_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.OptionsPageActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
