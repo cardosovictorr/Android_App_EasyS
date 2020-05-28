@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.android_app_easys_version4.R;
-
-public class DeleteSupplierActivity extends AppCompatActivity {
+public class UpdateSupplierActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_supplier);
+        setContentView(R.layout.activity_update_supplier);
     }
 }

@@ -6,4 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".activities.OptionsPageActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="95dp"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="65dp"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="361dp"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <Button
+        android:id="@+id/createListSupplierButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Create Supplier"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        style="?attr/materialButtonOutlinedStyle"
+        />
+
+    <Button
+        android:id="@+id/seeYourListButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="18dp"
+        android:text="SEE SUPPLIERS"
+        app:layout_constraintBottom_toBottomOf="@+id/createListSupplierButton"
+        app:layout_constraintStart_toEndOf="@+id/createListSupplierButton"
+        app:layout_constraintTop_toTopOf="@+id/createListSupplierButton" />
+
+    <Button
+        android:id="@+id/deleteSupplierButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:text="Delete Supplier"
+        app:layout_constraintEnd_toEndOf="@+id/createListSupplierButton"
+        app:layout_constraintStart_toStartOf="@+id/createListSupplierButton"
+        app:layout_constraintTop_toBottomOf="@+id/createListSupplierButton" />
+
+    <Button
+        android:id="@+id/updateSupplierButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="18dp"
+        android:text="UPDATE SUPPLIER"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteSupplierButton"
+        app:layout_constraintStart_toEndOf="@+id/deleteSupplierButton" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/backImageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/deleteSupplierButton"
+        app:layout_constraintTop_toBottomOf="@+id/deleteSupplierButton"
+        app:srcCompat="@drawable/abc_vector_test" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
