@@ -12,12 +12,12 @@ import android.view.View;
 
 import com.example.android_app_easys_version4.R;
 
-public class AddSupplierScrollingActivity extends AppCompatActivity {
+public class AddSuppliersScrollingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_supplier_scrolling);
+        setContentView(R.layout.activity_add_suppliers_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
