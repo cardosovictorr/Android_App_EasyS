@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activities.SeeListSuppliersScrollingActivity"
+            android:label="@string/title_activity_see_list_suppliers_scrolling"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.LogInActivity" />
+        <activity
             android:name=".activities.AddSuppliersScrollingActivity"
             android:label="@string/title_activity_add_suppliers_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.UpdateSupplierActivity" />
         <activity android:name=".activities.DeleteSupplierActivity" />

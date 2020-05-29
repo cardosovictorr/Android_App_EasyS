@@ -13,12 +13,11 @@ import com.example.android_app_easys_version4.MainActivity;
 import com.example.android_app_easys_version4.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import static com.example.android_app_easys_version4.entities.Constants.ADD_SUPPLIER_ACTIVITY_CODE;
 
 public class OptionsPageActivity extends AppCompatActivity {
 
     ImageButton backButton;
-    //Button createListSupplierButton;
+    Button createListSupplierButton;
     Button seeYourListButton;
     Button deleteSupplierButton;
     Button updateSupplierButton;
@@ -31,7 +30,7 @@ public class OptionsPageActivity extends AppCompatActivity {
 
 
         backButton = findViewById(R.id.backImageButton);
-        //createListSupplierButton = findViewById(R.id.createListSupplierButton);
+        createListSupplierButton = findViewById(R.id.createListSupplierButton);
         seeYourListButton = findViewById(R.id.seeYourListButton);
         deleteSupplierButton = findViewById(R.id.deleteSupplierButton);
         updateSupplierButton = findViewById(R.id.updateSupplierButton);
@@ -48,25 +47,25 @@ public class OptionsPageActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        //Button, if clicked, to see add new suppliers in the list
+
+        //Button, if clicked, go to form to add new suppliers
         createListSupplierButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToCreateSupplierPageIntent = new Intent(OptionsPageActivity.this,AddSupplierScrollingActivity.class);
+                Intent goToAddSupplierPageIntent = new Intent(OptionsPageActivity.this,AddSuppliersScrollingActivity.class);
 
-                startActivity(goToCreateSupplierPageIntent);
+                startActivity(goToAddSupplierPageIntent);
             }
         });
-        */
+
 
         //Button, if clicked, to see the list of the suppliers the user has added
         seeYourListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToSeeSupplierListPageIntent = new Intent(OptionsPageActivity.this, SeeListSupplierScrollingActivity.class);
+                //Intent goToSeeSupplierListPageIntent = new Intent(OptionsPageActivity.this, SeeListSupplierScrollingActivity.class);
 
-                startActivity(goToSeeSupplierListPageIntent);
+                //startActivity(goToSeeSupplierListPageIntent);
             }
         });
 
@@ -94,11 +93,4 @@ public class OptionsPageActivity extends AppCompatActivity {
 
     }
 
-    private void addNewSupplier() {
-       // Intent goToAddSupplier = new Intent(OptionsPageActivity.this, AddSupplierScrollingActivity.class);
-        //startActivityForResult(goToAddSupplier, ADD_SUPPLIER_ACTIVITY_CODE);
-    }
-
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
 }
