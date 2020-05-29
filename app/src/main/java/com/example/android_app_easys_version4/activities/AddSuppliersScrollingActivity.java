@@ -52,22 +52,26 @@ public class AddSuppliersScrollingActivity extends AppCompatActivity {
         addSupplier = findViewById(R.id.createListSupplierButton);
         cancelButton = findViewById(R.id.cancelButton);
 
+
         /*
         addSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                add(v);
-            }
-        });
-        
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancel(v);
+
             }
         });
 
          */
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToOptionsPageIntent = new Intent(AddSuppliersScrollingActivity.this, OptionsPageActivity.class);
+
+                startActivity(goToOptionsPageIntent);
+            }
+        });
+
     }
 
 /*

@@ -4,4 +4,5 @@ public class Constants {
 
     public static final Integer ADD_SUPPLIER_ACTIVITY_CODE = 1;
 
+
 }
