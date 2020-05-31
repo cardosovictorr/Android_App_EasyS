@@ -1,8 +1,11 @@
 package com.example.android_app_easys_version4.entities;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Supplier implements Serializable {
+
     public static final String SUPPLIER_KEY = "supplier_key";
 
     private Long id;
@@ -73,5 +76,16 @@ public class Supplier implements Serializable {
         this.imageFileName = imageFileName;
     }
 
-
+    @NonNull
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "id= " + id + System.lineSeparator() +
+                "name= " + name + System.lineSeparator() +
+                "category= "  + category + System.lineSeparator() +
+                "mobile= " + mobile + System.lineSeparator() +
+                "email= " + email + System.lineSeparator() +
+                "imageFileName= " + imageFileName + System.lineSeparator() +
+                "}" + System.lineSeparator();
+    }
 }

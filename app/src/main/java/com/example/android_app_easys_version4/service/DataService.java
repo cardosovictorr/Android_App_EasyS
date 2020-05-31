@@ -16,7 +16,6 @@ public class DataService {
     }
 
     public void disconnect(){
-        //disconect
     }
 
     public void init(Context context){ sqlite = sqlite.getInstance(context);}
@@ -28,6 +27,7 @@ public class DataService {
 
     //deleting a supplier from the database according to its Id
     public boolean delete(Supplier supplier){
+
         return sqlite.delete(supplier.getId());
     }
 

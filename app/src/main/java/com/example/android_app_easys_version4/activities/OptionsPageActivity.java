@@ -1,5 +1,6 @@
 package com.example.android_app_easys_version4.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,10 +12,18 @@ import android.widget.Toolbar;
 
 import com.example.android_app_easys_version4.MainActivity;
 import com.example.android_app_easys_version4.R;
+import com.example.android_app_easys_version4.entities.Supplier;
+import com.example.android_app_easys_version4.service.DataService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import static com.example.android_app_easys_version4.entities.Constants.ADD_SUPPLIER_ACTIVITY_CODE;
 
 
 public class OptionsPageActivity extends AppCompatActivity {
+
+    private DataService supplierDataService;
+    private View rootView;
 
     ImageButton backButton;
     Button createListSupplierButton;
@@ -27,7 +36,7 @@ public class OptionsPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options_page);
 
-
+        rootView = findViewById(android.R.id.content).getRootView();
 
         backButton = findViewById(R.id.backImageButton);
         createListSupplierButton = findViewById(R.id.createListSupplierButton);
@@ -52,9 +61,7 @@ public class OptionsPageActivity extends AppCompatActivity {
         createListSupplierButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToAddSupplierPageIntent = new Intent(OptionsPageActivity.this,AddSuppliersScrollingActivity.class);
-
-                startActivity(goToAddSupplierPageIntent);
+                addNewSupplier();
             }
         });
 
@@ -91,6 +98,41 @@ public class OptionsPageActivity extends AppCompatActivity {
 
         });
 
+        supplierDataService = new DataService();
+        supplierDataService.init(OptionsPageActivity.this);
+
     }
 
+    private void addNewSupplier() {
+
+        Intent goToAddSupplierPageIntent = new Intent(OptionsPageActivity.this,AddSuppliersScrollingActivity.class);
+
+        startActivityForResult(goToAddSupplierPageIntent, ADD_SUPPLIER_ACTIVITY_CODE);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == ADD_SUPPLIER_ACTIVITY_CODE){
+            if(resultCode == RESULT_OK){
+                addSupplier(data);
+            }
+        }
+    }
+
+    private void addSupplier(Intent data) {
+        String message;
+
+        Supplier supplier = (Supplier) data.getSerializableExtra(Supplier.SUPPLIER_KEY);
+
+        Long result = supplierDataService.add(supplier);
+        //that result will hold the id of the supplier. So if comes a positve number, it created the monster, if is -1 is an error
+        if(result > 0){
+            message = "Your supplier was created with the id: " + result;
+        } else{
+            message = "There was an error, please try again";
+        }
+        Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show();
+    }
 }

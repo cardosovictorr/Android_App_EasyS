@@ -3,6 +3,7 @@ package com.example.android_app_easys_version4.activities;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.android_app_easys_version4.entities.Supplier;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,6 +27,7 @@ public class AddSuppliersScrollingActivity extends AppCompatActivity {
     private EditText supplierEmailEditText;
     private Button addSupplier;
     private Button cancelButton;
+    private Supplier supplier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,38 +51,43 @@ public class AddSuppliersScrollingActivity extends AppCompatActivity {
         supplierCategoryEditText = findViewById(R.id.supplierCategoryEditText);
         supplierMobileEditText = findViewById(R.id.supplierMobileEditText);
         supplierEmailEditText = findViewById(R.id.supplierEmailEditText);
-        addSupplier = findViewById(R.id.createListSupplierButton);
+        addSupplier = findViewById(R.id.addSupplierButton);
         cancelButton = findViewById(R.id.cancelButton);
 
 
-        /*
+
         addSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                add(v);
             }
         });
 
-         */
+
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cancel(v);
+                /*
                 Intent goToOptionsPageIntent = new Intent(AddSuppliersScrollingActivity.this, OptionsPageActivity.class);
 
                 startActivity(goToOptionsPageIntent);
+
+                 */
             }
         });
 
     }
 
-/*
+
     private void cancel(View v) {
+        finish();
     }
 
- */
 
-/*
+
+
     private void add(View v) {
         String name = supplierNameEditText.getText().toString();
         if(name.trim().isEmpty()){
@@ -89,8 +96,20 @@ public class AddSuppliersScrollingActivity extends AppCompatActivity {
             supplierNameEditText.requestFocus();
             return;
         }
+        String category = supplierCategoryEditText.getText().toString().trim();
+        String mobile = supplierMobileEditText.getText().toString().trim();
+        String email = supplierEmailEditText.getText().toString().trim();
+        supplier = new Supplier();
+        supplier.setName(name);
+        supplier.setCategory(category);
+        supplier.setMobile(mobile);
+        supplier.setEmail(email);
+
+        Intent goingBack = new Intent();
+        goingBack.putExtra(Supplier.SUPPLIER_KEY, supplier);
+        setResult(RESULT_OK, goingBack);
+        finish();
     }
 
- */
 
 }
