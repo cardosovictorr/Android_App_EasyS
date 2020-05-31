@@ -1,6 +1,7 @@
 package com.example.android_app_easys_version4.activities;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,8 @@ import com.example.android_app_easys_version4.entities.Supplier;
 import com.example.android_app_easys_version4.service.DataService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 import static com.example.android_app_easys_version4.entities.Constants.ADD_SUPPLIER_ACTIVITY_CODE;
 
@@ -70,6 +73,8 @@ public class OptionsPageActivity extends AppCompatActivity {
         seeYourListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewAll(v);
+
                 //Intent goToSeeSupplierListPageIntent = new Intent(OptionsPageActivity.this, SeeListSupplierScrollingActivity.class);
 
                 //startActivity(goToSeeSupplierListPageIntent);
@@ -101,6 +106,20 @@ public class OptionsPageActivity extends AppCompatActivity {
         supplierDataService = new DataService();
         supplierDataService.init(OptionsPageActivity.this);
 
+    }
+
+    private void viewAll(View v) {
+        List<Supplier> suppliers = supplierDataService.getSupplier();
+        String text = "";
+
+        if (suppliers.size() > 0){
+            for(Supplier supplier : suppliers){
+                text = text.concat(supplier.toString());
+            }
+            showMessage("Data", text);
+        }else{
+            showMessage("Records", "Nothing found");
+        }
     }
 
     private void addNewSupplier() {
@@ -135,4 +154,14 @@ public class OptionsPageActivity extends AppCompatActivity {
         }
         Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show();
     }
+
+    private void showMessage(String data, String text) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(data);
+        builder.setMessage(text);
+
+        builder.show();
+    }
+
 }
