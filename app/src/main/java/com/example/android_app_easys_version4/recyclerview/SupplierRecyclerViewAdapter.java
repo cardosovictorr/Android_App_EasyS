@@ -13,12 +13,12 @@ import com.example.android_app_easys_version4.entities.Supplier;
 
 import java.util.List;
 
-public class SupplierRecyclerView extends RecyclerView.Adapter<SupplierViewHolder>{
+public class SupplierRecyclerViewAdapter extends RecyclerView.Adapter<SupplierViewHolder>{
 
     List<Supplier> suppliers;
     private Context context;
 
-    public SupplierRecyclerView(List<Supplier> supplier, Context context) {
+    public SupplierRecyclerViewAdapter(List<Supplier> supplier, Context context) {
         this.suppliers = suppliers;
         this.context = context;
     }

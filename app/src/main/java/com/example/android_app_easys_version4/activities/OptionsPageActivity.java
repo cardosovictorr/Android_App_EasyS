@@ -73,11 +73,11 @@ public class OptionsPageActivity extends AppCompatActivity {
         seeYourListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewAll(v);
+                //viewAll(v);
 
-                //Intent goToSeeSupplierListPageIntent = new Intent(OptionsPageActivity.this, SeeListSupplierScrollingActivity.class);
+                Intent goToSeeSupplierPageIntent = new Intent(OptionsPageActivity.this, SuppliersRecyclerViewActivity.class);
 
-                //startActivity(goToSeeSupplierListPageIntent);
+                startActivity(goToSeeSupplierPageIntent);
             }
         });
 
@@ -109,6 +109,8 @@ public class OptionsPageActivity extends AppCompatActivity {
     }
 
     private void viewAll(View v) {
+
+        /*
         List<Supplier> suppliers = supplierDataService.getSupplier();
         String text = "";
 
@@ -120,6 +122,8 @@ public class OptionsPageActivity extends AppCompatActivity {
         }else{
             showMessage("Records", "Nothing found");
         }
+
+         */
     }
 
     private void addNewSupplier() {
