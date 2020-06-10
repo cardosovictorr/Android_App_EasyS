@@ -31,12 +31,12 @@ public class SupplierViewHolder extends RecyclerView.ViewHolder {
     //making the data to my Vuew holder
     public void updateSupplier(Supplier supplier){
 
-        View rootView = supplierImageView.getRootView();
+        //View rootView = supplierImageView.getRootView();
         supplierNameTextView.setText(supplier.getName());
         supplierCategoryTextView.setText(supplier.getCategory());
         supplierMobileTextView.setText(supplier.getMobile());
         supplierEmailTextView.setText(supplier.getEmail());
-        int resId = rootView.getResources().getIdentifier(supplier.getImageFileName(), "drawable", rootView.getContext().getPackageName());
-        supplierImageView.setImageResource(resId);
+        //int resId = rootView.getResources().getIdentifier(supplier.getImageFileName(), "drawable", rootView.getContext().getPackageName());
+        //supplierImageView.setImageResource(resId);
     }
 }

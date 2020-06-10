@@ -18,7 +18,7 @@ public class SupplierRecyclerViewAdapter extends RecyclerView.Adapter<SupplierVi
     List<Supplier> suppliers;
     private Context context;
 
-    public SupplierRecyclerViewAdapter(List<Supplier> supplier, Context context) {
+    public SupplierRecyclerViewAdapter(List<Supplier> suppliers, Context context) {
         this.suppliers = suppliers;
         this.context = context;
     }
