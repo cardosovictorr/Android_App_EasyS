@@ -4,18 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.android_app_easys_version4.R;
 import com.example.android_app_easys_version4.entities.Supplier;
+import com.example.android_app_easys_version4.recyclerview.OnSupplierListener;
 import com.example.android_app_easys_version4.recyclerview.SupplierRecyclerViewAdapter;
 import com.example.android_app_easys_version4.service.DataService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuppliersRecyclerViewActivity extends AppCompatActivity {
+import static com.example.android_app_easys_version4.entities.Constants.DETAIL_SUPPLIER_ACTIVITY_CODE;
+
+public class SuppliersRecyclerViewActivity extends AppCompatActivity implements OnSupplierListener {
 
     private DataService supplierDataService;
     private Supplier supplier;
@@ -37,11 +41,25 @@ public class SuppliersRecyclerViewActivity extends AppCompatActivity {
         //load the data
         supplierDataService = new DataService();
         supplierDataService.init(this);
+        //database created finde Deviced File Explores
 
+        //Load Data from the database
         suppliers = supplierDataService.getSupplier();
-
-        SupplierRecyclerViewAdapter adapter = new SupplierRecyclerViewAdapter(suppliers, this);
-
+        //create adapter passing the data, and the context
+        SupplierRecyclerViewAdapter adapter = new SupplierRecyclerViewAdapter(suppliers, this, this);
+        //attach the adapter to  to the Recycler View
         supplierRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onSupplierClick(Supplier supplier) {
+        showSupplierDetail(supplier);
+    }
+
+    private void showSupplierDetail(Supplier supplier) {
+        Intent goToSuppliersDetail = new Intent(this, SupplierDetailActivity.class);
+        goToSuppliersDetail.putExtra(Supplier.SUPPLIER_KEY,supplier);
+
+        startActivityForResult(goToSuppliersDetail, DETAIL_SUPPLIER_ACTIVITY_CODE);
     }
 }

@@ -97,4 +97,5 @@
     <string name="title_activity_add_suppliers_scrolling">AddSuppliersScrollingActivity</string>
     <string name="title_activity_see_list_suppliers_scrolling">SeeListSuppliersScrollingActivity
     </string>
+    <string name="title_activity_supplier_detail_scrolling">SupplierDetailScrollingActivity</string>
 </resources>

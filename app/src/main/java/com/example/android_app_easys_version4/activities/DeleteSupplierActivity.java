@@ -10,16 +10,20 @@ import android.widget.EditText;
 
 import com.example.android_app_easys_version4.R;
 import com.example.android_app_easys_version4.entities.Supplier;
+import com.example.android_app_easys_version4.recyclerview.SupplierRecyclerViewAdapter;
 import com.example.android_app_easys_version4.service.DataService;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 public class DeleteSupplierActivity extends AppCompatActivity {
 
     private DataService supplierDataService;
-    
+    private List<Supplier> suppliers;
     Button cancelButton;
     Button deleteButton;
     EditText supplierIDEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +44,16 @@ public class DeleteSupplierActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //The function Delete is not working properly. SO I commented to fix it later.
+                //delete(v);
                 Intent goToMainPageUserIntent = new Intent(DeleteSupplierActivity.this,OptionsPageActivity.class);
 
                 startActivity(goToMainPageUserIntent);
             }
         });
+
+        suppliers = supplierDataService.getSupplier();
+        //adapter = new SupplierRecyclerViewAdapter(suppliers,this);
 
 
     }

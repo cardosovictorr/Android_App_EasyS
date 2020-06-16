@@ -13,6 +13,7 @@ import com.example.android_app_easys_version4.R;
 public class SignUpActivity extends AppCompatActivity {
 
     Button cancelButton;
+    Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         cancelButton = findViewById(R.id.cancelButton);
+        signUp = findViewById(R.id.signUpButton);
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +29,15 @@ public class SignUpActivity extends AppCompatActivity {
                 Intent goToLoginPageUserIntent = new Intent(SignUpActivity.this, MainActivity.class);
 
                 startActivity(goToLoginPageUserIntent);
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToLOptionPageIntent = new Intent(SignUpActivity.this, OptionsPageActivity.class);
+
+                startActivity(goToLOptionPageIntent);
             }
         });
 

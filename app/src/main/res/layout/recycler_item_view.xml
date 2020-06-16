@@ -105,26 +105,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/supplierMobileRecyclerTextView" />
 
             <Button
-                android:id="@+id/DeleteInRecyclerButton"
+                android:id="@+id/backInRecyclerButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="12dp"
-                android:text="Delete"
+                android:layout_marginEnd="50dp"
+                android:text="Back"
+                app:layout_constraintEnd_toStartOf="@+id/guideline29"
                 app:layout_constraintStart_toStartOf="@+id/guideline28"
                 app:layout_constraintTop_toBottomOf="@+id/supplierEmailRecyclerTextView" />
 
-            <Button
-                android:id="@+id/updateRecyclerButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="Update"
-                app:layout_constraintBottom_toBottomOf="@+id/DeleteInRecyclerButton"
-                app:layout_constraintEnd_toStartOf="@+id/guideline29"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toEndOf="@+id/DeleteInRecyclerButton"
-                app:layout_constraintTop_toTopOf="@+id/DeleteInRecyclerButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

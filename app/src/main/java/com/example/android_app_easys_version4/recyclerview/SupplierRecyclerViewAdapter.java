@@ -17,10 +17,12 @@ public class SupplierRecyclerViewAdapter extends RecyclerView.Adapter<SupplierVi
 
     List<Supplier> suppliers;
     private Context context;
+    private OnSupplierListener onSupplierListener;
 
-    public SupplierRecyclerViewAdapter(List<Supplier> suppliers, Context context) {
+    public SupplierRecyclerViewAdapter(List<Supplier> suppliers, Context context, OnSupplierListener onSupplierListener) {
         this.suppliers = suppliers;
         this.context = context;
+        this.onSupplierListener = onSupplierListener;
     }
 
     @NonNull
@@ -31,18 +33,21 @@ public class SupplierRecyclerViewAdapter extends RecyclerView.Adapter<SupplierVi
 
         View supplierViewItem= inflater.inflate(R.layout.recycler_item_view, parent, false);
 
-        SupplierViewHolder supplierViewHolder = new SupplierViewHolder(supplierViewItem);
+        SupplierViewHolder supplierViewHolder = new SupplierViewHolder(supplierViewItem, onSupplierListener);
 
         return supplierViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull SupplierViewHolder holder, int position) {
+        //call the data from the list
         Supplier supplier = suppliers.get(position);
+        //call the method to set the values in the SupplieView Holeder
         holder.updateSupplier(supplier);
-
+        holder.bind(supplier, onSupplierListener);
     }
 
+    //the folloeing will give the count of the list size, how many row it has
     @Override
     public int getItemCount() {
 
